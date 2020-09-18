@@ -22,18 +22,19 @@ const val BUNDLE_REMINDER_KEY = "bundle_reminder"
 class AddReminderFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        btnAddReminder.setOnClickListener {
-            onAddReminder()
-        }
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_reminder, container, false)
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnAddReminder.setOnClickListener {
+            onAddReminder()
+        }
+    }
     private fun onAddReminder() {
         val reminderText = etReminderName.text.toString()
 
@@ -53,8 +54,4 @@ class AddReminderFragment : Fragment() {
         }
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
 }
